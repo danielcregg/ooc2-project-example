@@ -21,6 +21,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 
+		int noOfCmdLineArgs = 0; // Used to set stage title
+		String cmdLineArgs = null; // Used to set stage title
+
 		/* Preparing the Scenes */
 		// Create gridpane node to use as root node of scene and to arrnage child nodes
 		// logically
@@ -200,7 +203,24 @@ public class Main extends Application {
 		Scene scene1 = new Scene(gridPane1, 600, 450);
 		// Preparing the Stage (i.e. the container of any JavaFX application)
 		// Set Stage Title
-		primaryStage.setTitle("Student Manager Application");
+
+		// Find number of command line arguments supplied
+		noOfCmdLineArgs = getParameters().getRaw().size();
+		// If command line arguments have been provided then set the title to
+		// them. If none were provided then set title to default value.
+		if (noOfCmdLineArgs > 0) {
+			// Get command line arguments as String
+			cmdLineArgs = getParameters().getRaw().toString();
+			//System.out.println(cmdLineArgs);
+			// Remove unwanted characters ([ and ] and ,)from string
+			cmdLineArgs = cmdLineArgs.replaceAll("\\[|\\]|\\,", "");
+			// System.out.println(cmdLineArgs);
+			primaryStage.setTitle(cmdLineArgs);
+		} else {
+			// Default value
+			primaryStage.setTitle("Student Manager Application");
+		}
+
 		// Setting the scene to Stage
 		primaryStage.setScene(scene1);
 		// Displaying the stage

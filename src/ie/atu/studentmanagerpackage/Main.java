@@ -22,6 +22,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 
+		// Create variables to store number of arguments passed and their content
 		int noOfCmdLineArgs = 0; // Used to set stage title
 		String cmdLineArgs = null; // Used to set stage title
 
@@ -189,10 +190,8 @@ public class Main extends Application {
 		if (noOfCmdLineArgs > 0) {
 			// Get command line arguments as String
 			cmdLineArgs = getParameters().getRaw().toString();
-			//System.out.println(cmdLineArgs);
 			// Remove unwanted characters ([ and ] and ,)from string
 			cmdLineArgs = cmdLineArgs.replaceAll("\\[|\\]|\\,", "");
-			// System.out.println(cmdLineArgs);
 			primaryStage.setTitle(cmdLineArgs);
 		} else {
 			// Default value

@@ -168,7 +168,7 @@ public class Main extends Application {
 			// Set initial directory to current directory
 			fileChooser2.setInitialDirectory(new File(System.getProperty("user.dir")));
 			// Opening a dialog box to choose file to save to (e.g. students.ser)
-			sm.writeStudentManagerObjectToFile(fileChooser.showSaveDialog(primaryStage).getAbsolutePath());
+			sm.writeStudentManagerObjectToFile(fileChooser2.showSaveDialog(primaryStage).getAbsolutePath());
 		});
 
 		// Quit button action
